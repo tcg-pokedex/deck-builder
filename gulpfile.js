@@ -10,6 +10,7 @@ var watch = require('gulp-watch');
 var paths = {
   scripts: 'src/js/**/*.js',
   stylesheets: 'src/stylesheets/**/*.css',
+  html: 'src/**/*.html',
   build: 'build/**/*'
 };
 
@@ -23,9 +24,14 @@ gulp.task('stylesheets', function(){
 });
 
 gulp.task('browserify', function() {
-  browserify('src/js/app.js')
+  browserify('./src/js/pokemon.js')
     .bundle()
     .pipe(source('bundle.js'))
+    .pipe(gulp.dest('build'));
+});
+
+gulp.task('html', function(){
+  gulp.src(paths.html)
     .pipe(gulp.dest('build'));
 });
 
@@ -54,6 +60,6 @@ gulp.task('ghPages', shell.task([
   'git uncommit && git unstage'
 ]));
 
-gulp.task('build', ['browserify', 'stylesheets']);
+gulp.task('build', ['browserify', 'stylesheets', 'html']);
 gulp.task('default', ['build', 'webserver', 'watch']);
 gulp.task('deploy', ['build', 'ghPages']);
