@@ -81,7 +81,11 @@ Polymer({
   },
   addCard: function(event) {
     event.preventDefault();
-    if(this.quantity === 0 || this.number === 0 || this.set === "") {
+    if( parseInt(this.quantity) === 0 ||
+        isNaN(parseInt(this.quantity)) ||
+        parseInt(this.number) === 0 ||
+        isNaN(parseInt(this.number)) ||
+        this.set === "" ) {
       this.$.toast.show();
     } else {
       this.fire('add', {quantity: this.quantity, set: this.set, number: this.number});
