@@ -2,6 +2,7 @@
 
   <template>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.1/yeti/bootstrap.min.css">
+    <link rel="stylesheet" href="pokemon-list.css">
 
     <div class="panel panel-default">
       <div class="panel-heading">Cards</div>
@@ -9,7 +10,7 @@
       <ul class="list-group">
         <template repeat="{{p, i in pokemon}}">
           <li class="list-group-item">
-            <span class="badge" pokemon="{{i}}" on-click="{{ remove }}">x</span>
+            <span class="badge clickable" pokemon="{{i}}" on-click="{{ remove }}">x</span>
             {{p.quantity}}x {{p.set}}-{{p.number}}
           </li>
         </template>
