@@ -2,6 +2,7 @@
 <link rel="import" href="../pokemon-add/pokemon-add.html">
 <link rel="import" href="../pokemon-list/pokemon-list.html">
 <link rel="import" href="../pokemon-cards/pokemon-cards.html">
+<link rel="import" href="../pokemon-json/pokemon-json.html">
 
 <polymer-element name="pokemon-app">
 
@@ -22,8 +23,10 @@
         </div>
         <div class="col-md-4">
           <pokemon-list id="list" pokemon="{{pokemon}}"></pokemon-list>
+          <button class="btn btn-default btn-block" on-click="{{toggleDialog}}">Import/Export</button>
         </div>
       </div>
+      <pokemon-json pokemon="{{pokemon}}" id="json"></pokemon-json>
     </div>
   </template>
 
