@@ -1,0 +1,1 @@
+Polymer({computed:{name:"pokemon.set + '_'+ pad(pokemon.number, 3)",src:"'http://www.lackeyccg.com/pokemon/high/cards/' + name + '.jpg'"},pad:function(e,n,o){var e=parseInt(this.pokemon.number),m="undefined"!=typeof o?o:"0",p=new Array(1+n).join(m);return(p+e).slice(-p.length)}});

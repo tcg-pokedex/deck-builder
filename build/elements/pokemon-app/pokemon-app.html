@@ -1,0 +1,31 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../pokemon-add/pokemon-add.html">
+<link rel="import" href="../pokemon-list/pokemon-list.html">
+<link rel="import" href="../pokemon-cards/pokemon-cards.html">
+
+<polymer-element name="pokemon-app">
+
+  <template>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.1/yeti/bootstrap.min.css">
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Pokemon Deck Builder</h1>
+      </div>
+      <pokemon-add on-add="{{handleAdd}}"></pokemon-add>
+      <br>
+      <br>
+      <hr>
+      <div class="row">
+        <div class="col-md-8">
+          <pokemon-cards pokemon="{{pokemon}}"></pokemon-cards>
+        </div>
+        <div class="col-md-4">
+          <pokemon-list id="list" pokemon="{{pokemon}}"></pokemon-list>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <script src="pokemon-app.js"></script>
+</polymer-element>

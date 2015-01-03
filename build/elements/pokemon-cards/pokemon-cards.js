@@ -1,0 +1,1 @@
+Polymer({ready:function(){var n=new ArrayObserver(this.pokemon);this.cards=[];var o=this;n.open(function(){o.pokemonToCards()})},pokemonToCards:function(){this.cards=[];var n=this;_.forEach(this.pokemon,function(o){_.times(parseInt(o.quantity),function(){n.cards.push(o)})})}});

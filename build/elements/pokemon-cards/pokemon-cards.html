@@ -1,0 +1,14 @@
+<link rel="import" href="../pokemon-card/pokemon-card.html">
+
+<polymer-element name="pokemon-cards" attributes="pokemon">
+  <template>
+    <div class="row">
+      <template repeat="{{cards}}">
+        <div class="col-md-3">
+          <pokemon-card pokemon="{{}}"></pokemon-card>
+        </div>
+      </template>
+    </div>
+  </template>
+  <script src="pokemon-cards.js"></script>
+</polymer-element>

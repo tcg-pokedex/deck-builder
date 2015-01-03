@@ -1,0 +1,1 @@
+Polymer({created:function(){this.pokemon=[]},handleAdd:function(e){this.pokemon.push(e.detail)}});
