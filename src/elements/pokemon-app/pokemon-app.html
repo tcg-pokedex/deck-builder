@@ -1,5 +1,6 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../pokemon-add/pokemon-add.html">
+<link rel="import" href="../pokemon-list/pokemon-list.html">
 
 <polymer-element name="pokemon-app">
 
@@ -16,10 +17,10 @@
       <hr>
       <div class="row">
         <div class="col-md-8">
-          <pokemon-cards></pokemon-cards>
+          <pokemon-cards pokemon="{{pokemon}}"></pokemon-cards>
         </div>
         <div class="col-md-4">
-          <pokemont-list></pokemont-list>
+          <pokemon-list id="list" pokemon="{{pokemon}}"></pokemon-list>
         </div>
       </div>
     </div>
