@@ -1,5 +1,4 @@
 Polymer({
   handleAdd: function(event) {
-
   }
 });

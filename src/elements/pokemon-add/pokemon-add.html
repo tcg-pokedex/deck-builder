@@ -7,16 +7,15 @@
   <template>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.1/yeti/bootstrap.min.css">
     <link rel="stylesheet" href="pokemon-add.css" shim-shadowdom>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css">
     <form class="form-inline">
       <div class="col-md-1 col-md-offset-3 form-group">
-        <label class="sr-only" for="quantity">Email address</label>
-        <input type="number" class="form-control width-100" id="quantity" placeholder="QTY">
+        <label class="sr-only" for="quantity">Quantity</label>
+        <input type="number" class="form-control width-100" id="quantity" placeholder="QTY" value="{{quantity}}">
       </div>
       <div class="col-md-2 form-group">
         <core-dropdown-menu label="Chose a set">
           <core-dropdown class="dropdown">
-            <core-menu>
+            <core-menu valueattr="value" selected="{{set}}">
               <template repeat="{{sets}}">
                 <core-item label="{{label}}" value="{{value}}"></core-item>
               </template>
@@ -25,17 +24,14 @@
         </core-dropdown-menu>
       </div>
       <div class="col-md-1 form-group">
-        <label class="sr-only" for="number">Email address</label>
-        <input type="number" class="form-control width-100" id="number" placeholder="#">
+        <label class="sr-only" for="number">Number</label>
+        <input type="number" class="form-control width-100" id="number" placeholder="#" value="{{number}}">
       </div>
       <div class="col-md-2 form-group">
-        <button class="btn btn-default">Add</button>
+        <button class="btn btn-default" on-click="{{addCard}}">Add</button>
       </div>
     </form>
-
   </template>
 
   <script src="pokemon-add.js"></script>
-  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 </polymer-element>
