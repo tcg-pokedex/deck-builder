@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.5.2"
+    "polymer": "Polymer/polymer#~0.5.2",
+    "core-dropdown-menu": "Polymer/core-dropdown-menu#~0.5.2"
   }
 }

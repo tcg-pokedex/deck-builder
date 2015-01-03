@@ -34,7 +34,6 @@ gulp.task('html', function(){
     .pipe(gulp.dest('build'));
 });
 
-
 gulp.task('watch', function(){
   watch(paths.scripts, function(files, cb){
     gulp.start('scripts', cb);
