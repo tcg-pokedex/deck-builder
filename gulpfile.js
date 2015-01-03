@@ -11,8 +11,7 @@ var paths = {
   scripts: 'src/**/*.js',
   stylesheets: 'src/**/*.css',
   html: 'src/**/*.html',
-  build: 'build/**/*',
-  bower: 'bower_components/**/*'
+  build: 'build/**/*'
 };
 
 gulp.task('clean', function(cb) {
@@ -35,10 +34,6 @@ gulp.task('html', function(){
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('bower', function(){
-  gulp.src(paths.bower)
-    .pipe(gulp.dest('build/bower_components'));
-})
 
 gulp.task('watch', function(){
   watch(paths.scripts, function(files, cb){
@@ -49,9 +44,6 @@ gulp.task('watch', function(){
   });
   watch(paths.html, function(files, cb) {
     gulp.start('html', cb);
-  });
-  watch(paths.bower, function(files, cb) {
-    gulp.start('bower', cb);
   });
 });
 
@@ -71,6 +63,6 @@ gulp.task('ghPages', shell.task([
   'git uncommit && git unstage'
 ]));
 
-gulp.task('build', ['scripts', 'stylesheets', 'html', 'bower']);
+gulp.task('build', ['scripts', 'stylesheets', 'html']);
 gulp.task('default', ['build', 'webserver', 'watch']);
 gulp.task('deploy', ['build', 'ghPages']);
