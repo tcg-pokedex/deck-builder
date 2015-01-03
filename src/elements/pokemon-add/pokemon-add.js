@@ -1,6 +1,7 @@
 Polymer({
   quantity: 0,
   number: 0,
+  set: "",
   ready: function() {
     this.sets = [
       // Original
@@ -80,9 +81,13 @@ Polymer({
   },
   addCard: function(event) {
     event.preventDefault();
-    this.fire('add', {quantity: this.quantity, set: this.set, number: this.number});
-    this.quantity = 0;
-    this.set = "";
-    this.number = 0;
+    if(this.quantity === 0 || this.number === 0 || this.set === "") {
+      this.$.toast.show();
+    } else {
+      this.fire('add', {quantity: this.quantity, set: this.set, number: this.number});
+      this.quantity = 0;
+      this.set = "";
+      this.number = 0;
+    }
   }
 });

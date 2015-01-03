@@ -2,6 +2,7 @@
 <link rel="import" href="../../bower_components/core-dropdown/core-dropdown.html">
 <link rel="import" href="../../bower_components/core-menu/core-menu.html">
 <link rel="import" href="../../bower_components/core-item/core-item.html">
+<link rel="import" href="../../bower_components/paper-toast/paper-toast.html">
 <polymer-element name="pokemon-add">
 
   <template>
@@ -31,6 +32,7 @@
         <button class="btn btn-default" on-click="{{addCard}}">Add</button>
       </div>
     </form>
+    <paper-toast id="toast" text="There was a problem with that pokemon."></paper-toast>
   </template>
 
   <script src="pokemon-add.js"></script>
