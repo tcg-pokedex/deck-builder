@@ -1,7 +1,12 @@
+<link rel="import" href="../../bower_components/core-overlay/core-overlay.html">
+
 <polymer-element name="pokemon-card" attributes="pokemon">
   <template>
     <link rel="stylesheet" href="pokemon-card.css">
-    <img src="{{src}}" alt="{{name}}">
+    <img class="width-100" src="{{src}}" alt="{{name}}" on-click="{{showBig}}">
+    <core-overlay backdrop id="overlay">
+      <img src="{{src}}" alt="{{name}}">
+    </core-overlay>
   </template>
   <script src="pokemon-card.js"></script>
 </polymer-element>
