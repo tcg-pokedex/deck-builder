@@ -1,1 +1,0 @@
-Polymer({handleAdd:function(){}});
