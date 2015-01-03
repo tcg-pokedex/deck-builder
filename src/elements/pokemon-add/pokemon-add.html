@@ -11,7 +11,7 @@
     <form class="form-inline">
       <div class="col-md-1 col-md-offset-3 form-group">
         <label class="sr-only" for="quantity">Quantity</label>
-        <input type="number" class="form-control width-100" id="quantity" placeholder="QTY" value="{{quantity}}" min="0">
+        <input type="number" class="form-control width-100" id="quantity" placeholder="QTY" _value="{{quantity}}" min="0">
       </div>
       <div class="col-md-2 form-group">
         <core-dropdown-menu label="Chose a set">
@@ -26,7 +26,7 @@
       </div>
       <div class="col-md-1 form-group">
         <label class="sr-only" for="number">Number</label>
-        <input type="number" class="form-control width-100" id="number" placeholder="#" value="{{number}}" min="0">
+        <input type="number" class="form-control width-100" id="number" placeholder="#" _value="{{number}}" min="0">
       </div>
       <div class="col-md-2 form-group">
         <button class="btn btn-default" on-click="{{addCard}}">Add</button>
