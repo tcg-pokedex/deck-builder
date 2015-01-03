@@ -2,7 +2,7 @@ Polymer({
   quantity: 0,
   number: 0,
   set: "",
-  ready: function() {
+  created: function() {
     this.sets = [
       // Original
       { value: 'BS', label: 'Base Set', series: 'Original' },

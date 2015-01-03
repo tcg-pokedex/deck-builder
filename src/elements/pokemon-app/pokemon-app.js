@@ -1,5 +1,5 @@
 Polymer({
-  ready: function(){
+  created: function(){
     this.pokemon = [];
   },
   handleAdd: function(event) {
