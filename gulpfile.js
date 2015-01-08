@@ -12,11 +12,11 @@ var reactify = require('reactify');
 var stylus = require('gulp-stylus');
 
 var paths = {
-  scripts: 'src/js/**/*.jsx',
-  js_main: 'src/js/app.jsx',
-  stylesheets: 'src/css**/*.styl',
-  html: 'src/**/*.html',
-  build: 'build/**/*'
+  scripts: './src/js/**/*.jsx',
+  js_main: './src/js/app.jsx',
+  stylesheets: './src/stylesheets/main.styl',
+  html: './src/**/*.html',
+  build: './build/**/*'
 };
 
 gulp.task('clean', function(cb) {
@@ -26,7 +26,7 @@ gulp.task('clean', function(cb) {
 gulp.task('build:stylesheets', function(){
   gulp.src(paths.stylesheets)
     .pipe(stylus())
-    .pipe(gulp.dest('build'));
+    .pipe(gulp.dest('build/css'));
 });
 
 gulp.task('build:scripts', function(){
