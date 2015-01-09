@@ -2,7 +2,12 @@ var React = require('react');
 var Fluxxor = require('fluxxor');
 var FluxMixin = Fluxxor.FluxMixin(React);
 var StoreWatchMixin = Fluxxor.StoreWatchMixin;
-var Button = require('react-bootstrap/Button');
+
+var bootstrap = require('react-bootstrap');
+var Button = bootstrap.Button;
+var PageHeader = bootstrap.PageHeader;
+var Col = bootstrap.Col;
+var Row = bootstrap.Row;
 
 var PokemonAdd = require('./pokemon-add');
 var PokemonCards = require('./pokemon-cards');
@@ -17,29 +22,27 @@ var PokemonApp = React.createClass({
     var flux = this.getFlux();
     return {
       pokemon: flux.store('PokemonStore').getState(),
-      set: flux.store('SetStore').getState()
+      sets: flux.store('SetStore').getState()
     };
   },
 
   render: function() {
     return (
       <div className='container'>
-        <div className='page-header'>
+        <PageHeader>
           <h1>Pokemon Deck Builder</h1>
-        </div>
-        <PokemonAdd onAdd={this.onAdd} />
-        <br/>
-        <br/>
+        </PageHeader>
+        <PokemonAdd onAdd={this.onAdd} sets={this.state.sets} />
         <hr/>
-        <div className='row'>
-          <div className='col-md-8'>
+        <Row>
+          <Col md={8}>
             <PokemonCards pokemon={this.state.pokemon} />
-          </div>
-          <div className='col-md-4'>
+          </Col>
+          <Col md={4}>
             <PokemonList pokemon={this.state.pokemon.pokemon} />
             <Button block onClick={this.toggleDialog}>Import/Export</Button>
-          </div>
-        </div>
+          </Col>
+        </Row>
         <PokemonJson pokemon={this.state.pokemon.pokemon} ref='pokemonJson' />
       </div>
     );

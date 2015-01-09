@@ -11,12 +11,12 @@ var PokemonStore = Fluxxor.createStore({
     );
   },
 
-  onAddCard: function(payload) {
+  onAddPokemon: function(payload) {
     this.pokemon.push(payload.pokemon);
     this.emit('change');
   },
 
-  onDeleteCard: function(payload) {
+  onDeletePokemon: function(payload) {
     this.pokemon.splice(payload.index, 1);
     this.emit('change');
   },

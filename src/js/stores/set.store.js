@@ -17,14 +17,14 @@ var SetStore = Fluxxor.createStore({
     this.emit('change');
   },
 
-  onDeleteCard: function(payload) {
+  onDeleteSet: function(payload) {
     this.sets.splice(payload.index, 1);
     this.emit('change');
   },
 
   getState: function() {
-    return {
-      sets: this.sets
-    }
+    return this.sets;
   }
 });
+
+module.exports = SetStore;
