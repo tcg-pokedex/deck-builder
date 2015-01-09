@@ -1,6 +1,6 @@
 var React = require('react');
 var flux = require('./flux');
 
-var Application = require('./components/application');
+var PokemonApp = require('./components/pokemon-app');
 
-React.render(<Application />, document.getElementById("app"));
+React.render(<PokemonApp flux={flux} />, document.getElementById("app"));

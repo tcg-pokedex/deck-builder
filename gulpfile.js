@@ -12,7 +12,7 @@ var reactify = require('reactify');
 var stylus = require('gulp-stylus');
 
 var paths = {
-  scripts: './src/js/**/*.jsx',
+  scripts: './src/js/**/*.@(js|jsx)',
   js_main: './src/js/app.jsx',
   stylesheets: './src/stylesheets/main.styl',
   html: './src/**/*.html',
