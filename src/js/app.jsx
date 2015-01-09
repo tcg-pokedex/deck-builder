@@ -3,4 +3,4 @@ var flux = require('./flux');
 
 var Application = require('./components/application');
 
-React.render(<Application flux={flux} />, document.getElementById("app"));
+React.render(<Application />, document.getElementById("app"));
