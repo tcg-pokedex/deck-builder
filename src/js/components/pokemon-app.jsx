@@ -11,35 +11,36 @@ var PokemonList = require('./pokemon-list');
 
 var PokemonApp = React.createClass({
 
-  mixins: [FluxMixin, StoreWatchMixin("ImageStore", "CarouselStore")],
+  mixins: [FluxMixin, StoreWatchMixin('PokemonStore', 'SetStore')],
 
   getStateFromFlux: function() {
     var flux = this.getFlux();
     return {
-      pokemon: flux.store("PokemonStore").getState()
+      pokemon: flux.store('PokemonStore').getState(),
+      set: flux.store('SetStore').getState()
     };
   },
 
   render: function() {
     return (
-      <div className="container">
-        <div className="page-header">
+      <div className='container'>
+        <div className='page-header'>
           <h1>Pokemon Deck Builder</h1>
         </div>
         <PokemonAdd onAdd={this.onAdd} />
         <br/>
         <br/>
         <hr/>
-        <div className="row">
-          <div className="col-md-8">
+        <div className='row'>
+          <div className='col-md-8'>
             <PokemonCards pokemon={this.state.pokemon} />
           </div>
-          <div className="col-md-4">
+          <div className='col-md-4'>
             <PokemonList pokemon={this.state.pokemon.pokemon} />
             <Button block onClick={this.toggleDialog}>Import/Export</Button>
           </div>
         </div>
-        <PokemonJson pokemon={this.state.pokemon.pokemon} ref="pokemonJson" />
+        <PokemonJson pokemon={this.state.pokemon.pokemon} ref='pokemonJson' />
       </div>
     );
   },

@@ -1,14 +1,14 @@
 var constants = require('../constants/pokemon.constants')
 
-function addCard(card) {
-  this.dispatch(constants.ADD_CARD, { card: card });
+function addPokemon(pokemon) {
+  this.dispatch(constants.ADD_POKEMON, { pokemon: pokemon });
 }
 
-function deleteCard(index) {
-  this.dispatch(constants.DELETE_CARD, { index: index });
+function deletePokemon(index) {
+  this.dispatch(constants.DELETE_POKEMON, { index: index });
 }
 
 module.exports = {
-  addCard: addCard,
-  deleteCard: deleteCard
+  addPokemon: addPokemon,
+  deletePokemon: deletePokemon
 };

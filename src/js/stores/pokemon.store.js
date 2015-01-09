@@ -6,19 +6,19 @@ var PokemonStore = Fluxxor.createStore({
     this.pokemon = [];
 
     this.bindActions(
-      constants.ADD_CARD, this.onAddCard,
-      constants.DELETE_CARD, this.onDeleteCard
+      constants.ADD_POKEMON, this.onAddPokemon,
+      constants.DELETE_POKEMON, this.onDeletePokemon
     );
   },
 
   onAddCard: function(payload) {
-    this.cards.push(payload.card);
-    this.emit("change");
+    this.pokemon.push(payload.pokemon);
+    this.emit('change');
   },
 
   onDeleteCard: function(payload) {
-    this.cards.splice(payload.index, 1);
-    this.emit("change");
+    this.pokemon.splice(payload.index, 1);
+    this.emit('change');
   },
 
   pokemonToCards: function() {
