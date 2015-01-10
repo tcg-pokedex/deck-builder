@@ -24,7 +24,7 @@ var PokemonStore = Fluxxor.createStore({
   pokemonToCards: function() {
     var cards = [];
     _.forEach(this.pokemon, function(pokemon) {
-      _.times(parseInt(pokemon.quantity), function(n){
+      _.times(pokemon.quantity, function(n){
         cards.push(pokemon);
       });
     });
