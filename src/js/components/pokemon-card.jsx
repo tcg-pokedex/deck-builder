@@ -1,6 +1,15 @@
 var React = require('react');
 
 var PokemonCard = React.createClass({
+  componentDidMount: function() {
+    $(this.refs.lightbox.getDOMNode()).fancybox({
+      helpers : {
+        title : null
+      },
+      padding: 0,
+      closeBtn: false
+    });
+  },
   pad: function(n, p, c) {
     var n = n;
     var pad_char = typeof c !== 'undefined' ? c : '0';
@@ -16,7 +25,7 @@ var PokemonCard = React.createClass({
   render: function() {
     var src = this.src();
     var name = this.name();
-    return <img src={src} alt={name} className="width-100" />;
+    return <a ref="lightbox" href={src}><img src={src} alt={name} className="width-100" /></a>;
   }
 });
 
