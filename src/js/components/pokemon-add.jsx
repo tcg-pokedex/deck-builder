@@ -1,13 +1,10 @@
-var React = require('react');
+var React = require('react/addons');
 
 var bootstrap = require('react-bootstrap');
 var Col = bootstrap.Col;
 var Input = bootstrap.Input;
 var Button = bootstrap.Button;
-
-var mui = require('material-ui');
-var SnackBar = mui.SnackBar;
-var DropDownMenu = mui.DropDownMenu;
+var Alert = bootstrap.Alert;
 
 var PokemonAdd = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
@@ -15,7 +12,8 @@ var PokemonAdd = React.createClass({
     return {
       quantity: 0,
       number: 0,
-      set: ''
+      set: '',
+      alertVisible: false
     };
   },
 
@@ -38,9 +36,20 @@ var PokemonAdd = React.createClass({
   },
 
   render: function() {
+    var alert;
+    if (this.state.alertVisible) {
+      alert =  (
+        <Alert bsStyle="danger" onDismiss={this.handleAlertDismiss}>
+          There was a problem with that pokemon.
+        </Alert>
+      );
+    } else {
+      alert = <span></span>;
+    }
     return (
       <div>
-        <form>
+        {alert}
+        <form onSubmit={this.onSubmit}>
           <Col md={1} mdOffset={3}>
             <div className="form-group">
               <label>Quantity</label>
@@ -63,7 +72,7 @@ var PokemonAdd = React.createClass({
           </Col>
           <Col md={2} >
             <div className="form-group add-button">
-              <Button type="submit" onClick={this.submit}>Add</Button>
+              <Button type="submit">Add</Button>
             </div>
           </Col>
         </form>
@@ -78,11 +87,27 @@ var PokemonAdd = React.createClass({
     this.setState({set: value});
   },
 
-  submit: function(event) {
+  onSubmit: function(event) {
     event.preventDefault();
-    this.props.onAdd(this.state);
-    this.setState({set: '', quantity: 0, number: 0});
-    this.state.select.clear();
+    if( parseInt(this.state.quantity) === 0 ||
+        isNaN(parseInt(this.state.quantity)) ||
+        parseInt(this.state.number) === 0 ||
+        isNaN(parseInt(this.state.number)) ||
+        this.state.set === "" ) {
+      this.setState({alertVisible: true});
+    } else {
+      this.props.onAdd({
+        quantity: parseInt(this.state.quantity),
+        number: parseInt(this.state.number),
+        set: this.state.set
+      });
+      this.setState({set: '', quantity: 0, number: 0});
+      this.state.select.clear();
+    }
+  },
+
+  handleAlertDismiss: function() {
+    this.setState({alertVisible: false});
   }
 });
 
