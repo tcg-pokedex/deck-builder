@@ -1,1 +1,0 @@
-Polymer({created:function(){this.pokemon=[]},handleAdd:function(o){this.pokemon.push(o.detail)},toggleDialog:function(){this.$.json.toggle()}});

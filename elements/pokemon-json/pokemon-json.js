@@ -1,1 +1,0 @@
-Polymer({ready:function(){this.json=JSON.stringify(this.pokemon,null,4);var n=new ArrayObserver(this.pokemon),o=this;n.open(function(){o.json=JSON.stringify(o.pokemon,null,4)})},update:function(){var n=JSON.parse(this.json),o=this;this.pokemon.length=0,_.forEach(n,function(n){o.pokemon.push(n)})},toggle:function(){this.$.dialog.toggle()}});

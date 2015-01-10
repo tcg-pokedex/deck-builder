@@ -1,1 +1,0 @@
-Polymer({ready:function(){var n=new ArrayObserver(this.pokemon);this.count=0;var e=this;n.open(function(){e.count=e.pokemonCount()})},remove:function(n){var e=n.currentTarget.attributes.pokemon.value;this.pokemon.splice(e,1)},pokemonCount:function(){return _.reduce(this.pokemon,function(n,e){return n+parseInt(e.quantity)},0)}});
