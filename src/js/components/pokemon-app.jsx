@@ -48,8 +48,8 @@ var PokemonApp = React.createClass({
     );
   },
 
-  onAdd: function(card) {
-    this.getFlux().actions.addImage(card);
+  onAdd: function(pokemon) {
+    this.getFlux().actions.pokemon.addPokemon(pokemon);
   },
 
   toggleDialog: function() {

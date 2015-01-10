@@ -2,10 +2,12 @@ var React = require('react');
 
 var bootstrap = require('react-bootstrap');
 var Col = bootstrap.Col;
+var Input = bootstrap.Input;
 var Button = bootstrap.Button;
 
 var mui = require('material-ui');
 var SnackBar = mui.SnackBar;
+var DropDownMenu = mui.DropDownMenu;
 
 var PokemonAdd = React.createClass({
   mixins: [React.addons.LinkedStateMixin],
@@ -18,8 +20,21 @@ var PokemonAdd = React.createClass({
   },
 
   componentDidMount: function() {
-    console.log(this.refs.select);
-    $(this.refs.select.getDOMNode()).selectize();
+    var sets = this.props.sets;
+    var select = $(this.refs.select.getDOMNode()).selectize({
+      options: sets.sets,
+      optgroups: sets.series,
+      labelField: 'label',
+      valueField: 'value',
+      optgroupField: 'series',
+      optgroupLabelField: 'series',
+      optgroupValueField: 'series',
+      searchField: ['series', 'label'],
+      optgroupOrder: _.pluck(sets.series, 'series'),
+      onChange: this.updateSet
+    });
+
+    this.setState({select: select[0].selectize});
   },
 
   render: function() {
@@ -28,29 +43,27 @@ var PokemonAdd = React.createClass({
         <form>
           <Col md={1} mdOffset={3}>
             <div className="form-group">
-              <label for="quantity">Quantity</label>
+              <label>Quantity</label>
               <input type="number" className="form-control width-100" valueLink={this.linkState('quantity')} min="0" />
             </div>
           </Col>
           <Col md={2}>
             <div className="form-group">
-              <label for="set">Set</label>
+              <label>Set</label>
               <select ref="select" placeholder="Pick a set...">
-                {this.props.sets.map(function(set) {
-                  return <option value={set.value}>{set.label}</option>;
-                })}
+
               </select>
             </div>
           </Col>
           <Col md={1} >
             <div className="form-group">
-              <label for="number">Number</label>
+              <label>Number</label>
               <input type="number" className="form-control width-100" valueLink={this.linkState('number')} min="0" />
             </div>
           </Col>
           <Col md={2} >
             <div className="form-group add-button">
-              <Button onClick={this.submit}>Add</Button>
+              <Button type="submit" onClick={this.submit}>Add</Button>
             </div>
           </Col>
         </form>
@@ -61,12 +74,15 @@ var PokemonAdd = React.createClass({
     );
   },
 
-  updateSet: function(e, selectedIndex, menuItem) {
-    this.state.set = menuItem;
+  updateSet: function(value) {
+    this.setState({set: value});
   },
 
-  submit: function() {
-    console.log(this.state);
+  submit: function(event) {
+    event.preventDefault();
+    this.props.onAdd(this.state);
+    this.setState({set: '', quantity: 0, number: 0});
+    this.state.select.clear();
   }
 });
 
