@@ -10,9 +10,9 @@ var SetStore = Fluxxor.createStore({
 
     this.bindActions(
       constants.ADD_SET, this.onAddSet,
-      constants.DELETE_SET, this.onDeleteSet,
+      constants.REMOVE_SET, this.onRemoveSet,
       constants.ADD_SERIES, this.onAddSeries,
-      constants.DELETE_SERIES, this.onDeleteSeries
+      constants.REMOVE_SERIES, this.onRemoveSeries
     );
   },
 
@@ -21,7 +21,7 @@ var SetStore = Fluxxor.createStore({
     this.emit('change');
   },
 
-  onDeleteSet: function(payload) {
+  onRemoveSet: function(payload) {
     this.sets.splice(payload.index, 1);
     this.emit('change');
   },
@@ -31,7 +31,7 @@ var SetStore = Fluxxor.createStore({
     this.emit('change');
   },
 
-  onDeleteSeries: function(payload) {
+  onRemoveSeries: function(payload) {
     this.series.splice(payload.index, 1);
     this.emit('change');
   },

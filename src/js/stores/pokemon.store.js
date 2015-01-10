@@ -7,7 +7,7 @@ var PokemonStore = Fluxxor.createStore({
 
     this.bindActions(
       constants.ADD_POKEMON, this.onAddPokemon,
-      constants.DELETE_POKEMON, this.onDeletePokemon
+      constants.REMOVE_POKEMON, this.onRemovePokemon
     );
   },
 
@@ -16,7 +16,7 @@ var PokemonStore = Fluxxor.createStore({
     this.emit('change');
   },
 
-  onDeletePokemon: function(payload) {
+  onRemovePokemon: function(payload) {
     this.pokemon.splice(payload.index, 1);
     this.emit('change');
   },

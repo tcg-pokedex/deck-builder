@@ -39,7 +39,7 @@ var PokemonApp = React.createClass({
             <PokemonCards pokemon={this.state.pokemon} />
           </Col>
           <Col md={4}>
-            <PokemonList pokemon={this.state.pokemon.pokemon} />
+            <PokemonList pokemon={this.state.pokemon.pokemon} onRemove={this.onRemove} />
             <Button block onClick={this.toggleDialog}>Import/Export</Button>
           </Col>
         </Row>
@@ -50,6 +50,10 @@ var PokemonApp = React.createClass({
 
   onAdd: function(pokemon) {
     this.getFlux().actions.pokemon.addPokemon(pokemon);
+  },
+
+  onRemove: function(index) {
+    this.getFlux().actions.pokemon.removePokemon(index);
   },
 
   toggleDialog: function() {
