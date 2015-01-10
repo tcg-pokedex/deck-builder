@@ -1,4 +1,5 @@
 var React = require('react/addons');
+var LinkedStateMixin = React.addons.LinkedStateMixin;
 
 var bootstrap = require('react-bootstrap');
 var Col = bootstrap.Col;
@@ -7,7 +8,7 @@ var Button = bootstrap.Button;
 var Alert = bootstrap.Alert;
 
 var PokemonAdd = React.createClass({
-  mixins: [React.addons.LinkedStateMixin],
+  mixins: [LinkedStateMixin],
   getInitialState: function() {
     return {
       quantity: 0,

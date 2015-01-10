@@ -7,7 +7,8 @@ var PokemonStore = Fluxxor.createStore({
 
     this.bindActions(
       constants.ADD_POKEMON, this.onAddPokemon,
-      constants.REMOVE_POKEMON, this.onRemovePokemon
+      constants.REMOVE_POKEMON, this.onRemovePokemon,
+      constants.JSON_TO_POKEMON, this.onJsonToPokemon
     );
   },
 
@@ -21,6 +22,11 @@ var PokemonStore = Fluxxor.createStore({
     this.emit('change');
   },
 
+  onJsonToPokemon: function(payload) {
+    this.pokemon = JSON.parse(payload.json);
+    this.emit('change');
+  },
+
   pokemonToCards: function() {
     var cards = [];
     _.forEach(this.pokemon, function(pokemon) {
@@ -31,10 +37,15 @@ var PokemonStore = Fluxxor.createStore({
     return cards;
   },
 
+  pokemonToJson: function() {
+    return JSON.stringify(this.pokemon, null, 4);
+  },
+
   getState: function() {
     return {
       pokemon: this.pokemon,
-      pokemonToCards: this.pokemonToCards
+      pokemonToCards: this.pokemonToCards,
+      pokemonToJson: this.pokemonToJson
     };
   }
 });

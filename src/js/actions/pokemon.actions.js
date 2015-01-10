@@ -8,7 +8,12 @@ function removePokemon(index) {
   this.dispatch(constants.REMOVE_POKEMON, { index: index });
 }
 
+function jsonToPokemon(json) {
+  this.dispatch(constants.JSON_TO_POKEMON, { json: json });
+}
+
 module.exports = {
   addPokemon: addPokemon,
-  removePokemon: removePokemon
+  removePokemon: removePokemon,
+  jsonToPokemon: jsonToPokemon
 };

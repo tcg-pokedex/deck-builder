@@ -40,10 +40,9 @@ var PokemonApp = React.createClass({
           </Col>
           <Col md={4}>
             <PokemonList pokemon={this.state.pokemon.pokemon} onRemove={this.onRemove} />
-            <Button block onClick={this.toggleDialog}>Import/Export</Button>
+            <PokemonJson pokemon={this.state.pokemon} onJsonToPokemon={this.onJsonToPokemon} ref='pokemonJson' />
           </Col>
         </Row>
-        <PokemonJson pokemon={this.state.pokemon.pokemon} ref='pokemonJson' />
       </div>
     );
   },
@@ -54,6 +53,10 @@ var PokemonApp = React.createClass({
 
   onRemove: function(index) {
     this.getFlux().actions.pokemon.removePokemon(index);
+  },
+
+  onJsonToPokemon: function(json) {
+    this.getFlux().actions.pokemon.jsonToPokemon(json);
   },
 
   toggleDialog: function() {
