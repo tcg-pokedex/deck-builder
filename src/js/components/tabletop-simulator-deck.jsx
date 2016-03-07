@@ -16,7 +16,7 @@ var TabletopSimulatorDeck = React.createClass({
         <Surface ref="canvas" width={WIDTH * COLS} height={HEIGHT * ROWS} left={0} top={0}>
           { this.props.pokemon.pokemonToCards().map((card, index) => {
             return (
-              <Image key={this.key()} style={this.imageStyle(index)} src={this.src(card)} />
+              <Image key={this.key(card, index)} style={this.imageStyle(index)} src={this.src(card)} />
             );
           })}
         </Surface>
@@ -24,7 +24,7 @@ var TabletopSimulatorDeck = React.createClass({
     );
   },
 
-  key: function(card) {
+  key: function(card, index) {
     return card.set + '-' + card.number + '-' + index;
   },
 
