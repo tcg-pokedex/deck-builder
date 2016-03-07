@@ -3,7 +3,7 @@
   { "value": "BS", "label": "Base Set", "series": "Original" },
   { "value": "B2", "label": "Base Set 2", "series": "Original" },
   { "value": "FO", "label": "Fossil", "series": "Original" },
-  { "value": "GC", "label": "Gym Challenge", "series": "Orginal" },
+  { "value": "GC", "label": "Gym Challenge", "series": "Original" },
   { "value": "GH", "label": "Gym Heroes", "series": "Original" },
   { "value": "JU", "label": "Jungle", "series": "Original" },
   { "value": "TR", "label": "Team Rocket", "series": "Original" },
@@ -68,8 +68,15 @@
   { "value": "PLF", "label": "Plasma Freeze", "series": "Black & White" },
   { "value": "PLS", "label": "Plasma Storm", "series": "Black & White" },
   // XY
+  { "value": "AOR", "label": "Ancient Origins", "series": "XY" },
+  { "value": "BKT", "label": "BREAKthrough", "series": "XY" },
+  { "value": "BKP", "label": "BREAKpoint", "series": "XY" },
+  { "value": "DCR", "label": "Double Crisis", "series": "XY" },
   { "value": "FLF", "label": "Flashfire", "series": "XY" },
   { "value": "FFI", "label": "Furious Fists", "series": "XY" },
+  { "value": "GEN", "label": "Generations", "series": "XY" },
   { "value": "PHF", "label": "Phantom Forces", "series": "XY" },
+  { "value": "PRC", "label": "Primal Clash", "series": "XY" },
+  { "value": "ROS", "label": "Roaring Skies", "series": "XY" },
   { "value": "XY", "label": "XY", "series": "XY" }
 ]

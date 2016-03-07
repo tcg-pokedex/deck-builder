@@ -29,17 +29,20 @@ gulp.task('build:stylesheets', function(){
     .pipe(gulp.dest('build/css'));
 });
 
+function reactifyES6(file) {
+  return reactify(file, {'es6': true});
+}
+
 gulp.task('build:scripts', function(){
   var b = browserify({
     extensions: ['.jsx'],
     debug: true
   });
-  b.transform(reactify); // use the reactify transform
+  b.transform(reactifyES6); // use the reactify transform
   b.add(paths.js_main);
   return b.bundle()
     .pipe(source('js/main.js'))
     .pipe(buffer())
-    .pipe(uglify())
     .pipe(gulp.dest('build'));
 });
 

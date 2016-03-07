@@ -1,5 +1,5 @@
-var React = require('react/addons');
-var LinkedStateMixin = React.addons.LinkedStateMixin;
+var React = require('react');
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var bootstrap = require('react-bootstrap');
 var Col = bootstrap.Col;
@@ -20,7 +20,7 @@ var PokemonAdd = React.createClass({
 
   componentDidMount: function() {
     var sets = this.props.sets;
-    var select = $(this.refs.select.getDOMNode()).selectize({
+    var select = $(this.refs.select).selectize({
       options: sets.sets,
       optgroups: sets.series,
       labelField: 'label',

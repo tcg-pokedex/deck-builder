@@ -13,6 +13,8 @@ var PokemonAdd = require('./pokemon-add');
 var PokemonCards = require('./pokemon-cards');
 var PokemonJson = require('./pokemon-json');
 var PokemonList = require('./pokemon-list');
+var TabletopSimulatorDeck = require('./tabletop-simulator-deck');
+var TabletopButton = require('./tabletop-button');
 
 var PokemonApp = React.createClass({
 
@@ -30,7 +32,7 @@ var PokemonApp = React.createClass({
     return (
       <div className='container'>
         <PageHeader>
-          <h1>Pokemon Deck Builder</h1>
+          Pokemon Deck Builder
         </PageHeader>
         <PokemonAdd onAdd={this.onAdd} sets={this.state.sets} />
         <hr/>
@@ -41,8 +43,10 @@ var PokemonApp = React.createClass({
           <Col md={4}>
             <PokemonList pokemon={this.state.pokemon.pokemon} onRemove={this.onRemove} />
             <PokemonJson pokemon={this.state.pokemon} onJsonToPokemon={this.onJsonToPokemon} ref='pokemonJson' />
+            <TabletopButton/>
           </Col>
         </Row>
+        <TabletopSimulatorDeck pokemon={this.state.pokemon} />
       </div>
     );
   },

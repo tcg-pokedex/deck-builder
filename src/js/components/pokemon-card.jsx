@@ -2,7 +2,7 @@ var React = require('react');
 
 var PokemonCard = React.createClass({
   componentDidMount: function() {
-    $(this.refs.lightbox.getDOMNode()).fancybox({
+    $(this.refs.lightbox).fancybox({
       helpers : {
         title : null
       },
@@ -20,7 +20,7 @@ var PokemonCard = React.createClass({
     return this.props.set + '_' + this.pad(this.props.number, 3);
   },
   src: function() {
-    return 'http://www.lackeyccg.com/pokemon/high/cards/' + this.name() + '.jpg'
+    return 'https://dl.dropboxusercontent.com/u/73204375/pokemon/cards/' + this.name() + '.jpg'
   },
   render: function() {
     var src = this.src();
