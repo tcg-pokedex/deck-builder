@@ -25,7 +25,7 @@ var TabletopSimulatorDeck = React.createClass({
   },
 
   key: function(card) {
-    return cards.set + '-' + card.number + '-' + index;
+    return card.set + '-' + card.number + '-' + index;
   },
 
   pad: function(n, p, c) {
