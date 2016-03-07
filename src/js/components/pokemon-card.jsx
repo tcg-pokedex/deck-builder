@@ -10,21 +10,12 @@ var PokemonCard = React.createClass({
       closeBtn: false
     });
   },
-  pad: function(n, p, c) {
-    var n = n;
-    var pad_char = typeof c !== 'undefined' ? c : '0';
-    var pad = new Array(1 + p).join(pad_char);
-    return (pad + n).slice(-pad.length);
-  },
-  name: function() {
-    return this.props.set + '_' + this.pad(this.props.number, 3);
-  },
   src: function() {
-    return 'https://dl.dropboxusercontent.com/u/73204375/pokemon/cards/' + this.name() + '.jpg'
+    return 'https://dl.dropboxusercontent.com/u/73204375/pokemon/cards/' + this.props.card + '.jpg'
   },
   render: function() {
     var src = this.src();
-    var name = this.name();
+    var name = this.props.card;
     return <a ref="lightbox" href={src}><img src={src} alt={name} className="width-100" /></a>;
   }
 });

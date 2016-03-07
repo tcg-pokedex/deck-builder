@@ -17,7 +17,7 @@ var PokemonList = React.createClass({
             return (
               <ListGroupItem key={id} >
                 <Badge data-index={i} className="clickable" onClick={remove} >x</Badge>
-                {p.quantity}x {p.set}-{p.number}
+                {p.quantity}x {p.card}
               </ListGroupItem>
             );
           })}

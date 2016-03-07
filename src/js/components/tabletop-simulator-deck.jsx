@@ -25,20 +25,11 @@ var TabletopSimulatorDeck = React.createClass({
   },
 
   key: function(card, index) {
-    return card.set + '-' + card.number + '-' + index;
+    return card.card + '-' + index;
   },
 
-  pad: function(n, p, c) {
-    var n = n;
-    var pad_char = typeof c !== 'undefined' ? c : '0';
-    var pad = new Array(1 + p).join(pad_char);
-    return (pad + n).slice(-pad.length);
-  },
-  name: function(card) {
-    return card.set + '_' + this.pad(card.number, 3);
-  },
   src: function(card) {
-    return 'https://dl.dropboxusercontent.com/u/73204375/pokemon/cards/' + this.name(card) + '.jpg'
+    return 'https://dl.dropboxusercontent.com/u/73204375/pokemon/cards/' + card.card + '.jpg'
   },
   imageStyle: function (index) {
     var row = Math.floor(index / COLS);

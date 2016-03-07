@@ -1,7 +1,7 @@
 var pokemon = require('./pokemon.actions');
-var set = require('./set.actions');
+var cardData = require('./card-data.actions');
 
 module.exports = {
   pokemon: pokemon,
-  set: set
+  cardData: cardData,
 };

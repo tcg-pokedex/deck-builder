@@ -18,14 +18,18 @@ var TabletopButton = require('./tabletop-button');
 
 var PokemonApp = React.createClass({
 
-  mixins: [FluxMixin, StoreWatchMixin('PokemonStore', 'SetStore')],
+  mixins: [FluxMixin, StoreWatchMixin('PokemonStore', 'CardDataStore')],
 
   getStateFromFlux: function() {
     var flux = this.getFlux();
     return {
       pokemon: flux.store('PokemonStore').getState(),
-      sets: flux.store('SetStore').getState()
+      cardData: flux.store('CardDataStore').getState()
     };
+  },
+
+  componentDidMount: function() {
+    this.getFlux().actions.cardData.loadData();
   },
 
   render: function() {
@@ -34,7 +38,7 @@ var PokemonApp = React.createClass({
         <PageHeader>
           Pokemon Deck Builder
         </PageHeader>
-        <PokemonAdd onAdd={this.onAdd} sets={this.state.sets} />
+        <PokemonAdd onAdd={this.onAdd} cards={this.state.cardData} />
         <hr/>
         <Row>
           <Col md={8}>

@@ -12,28 +12,26 @@ var PokemonAdd = React.createClass({
   getInitialState: function() {
     return {
       quantity: 0,
-      number: 0,
-      set: '',
+      cards: '',
       alertVisible: false
     };
   },
 
   componentDidMount: function() {
-    var sets = this.props.sets;
+    var sets = this.props.cards;
     var select = $(this.refs.select).selectize({
-      options: sets.sets,
-      optgroups: sets.series,
-      labelField: 'label',
-      valueField: 'value',
-      optgroupField: 'series',
-      optgroupLabelField: 'series',
-      optgroupValueField: 'series',
-      searchField: ['series', 'label'],
-      optgroupOrder: _.pluck(sets.series, 'series'),
-      onChange: this.updateSet
+      options: sets.cardData,
+      labelField: 'name',
+      valueField: 'imageFile',
+      searchField: ['name'],
+      onChange: this.updateCard
     });
 
     this.setState({select: select[0].selectize});
+  },
+
+  componentDidUpdate: function() {
+    this.state.select.addOption(this.props.cards.cardData);
   },
 
   render: function() {
@@ -57,18 +55,12 @@ var PokemonAdd = React.createClass({
               <input type="number" className="form-control width-100" valueLink={this.linkState('quantity')} min="0" />
             </div>
           </Col>
-          <Col md={2}>
+          <Col md={3}>
             <div className="form-group">
-              <label>Set</label>
-              <select ref="select" placeholder="Pick a set...">
+              <label>Card</label>
+              <select ref="select" placeholder="Pick a card...">
 
               </select>
-            </div>
-          </Col>
-          <Col md={1} >
-            <div className="form-group">
-              <label>Number</label>
-              <input type="number" className="form-control width-100" valueLink={this.linkState('number')} min="0" />
             </div>
           </Col>
           <Col md={2} >
@@ -84,25 +76,22 @@ var PokemonAdd = React.createClass({
     );
   },
 
-  updateSet: function(value) {
-    this.setState({set: value});
+  updateCard: function(value) {
+    this.setState({card: value});
   },
 
   onSubmit: function(event) {
     event.preventDefault();
     if( parseInt(this.state.quantity) === 0 ||
         isNaN(parseInt(this.state.quantity)) ||
-        parseInt(this.state.number) === 0 ||
-        isNaN(parseInt(this.state.number)) ||
         this.state.set === "" ) {
       this.setState({alertVisible: true});
     } else {
       this.props.onAdd({
         quantity: parseInt(this.state.quantity),
-        number: parseInt(this.state.number),
-        set: this.state.set
+        card: this.state.card
       });
-      this.setState({set: '', quantity: 0, number: 0});
+      this.setState({card: '', quantity: 0});
       this.state.select.clear();
     }
   },

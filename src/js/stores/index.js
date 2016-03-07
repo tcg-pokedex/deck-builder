@@ -1,7 +1,7 @@
 var PokemonStore = require('./pokemon.store');
-var SetStore = require('./set.store');
+var CardDataStore = require('./card-data.store');
 
 module.exports = {
   PokemonStore: new PokemonStore(),
-  SetStore: new SetStore()
+  CardDataStore: new CardDataStore(),
 };

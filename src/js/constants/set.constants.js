@@ -1,7 +1,0 @@
-module.exports = {
-  ADD_SET: 'ADD_SET',
-  REMOVE_SET: 'REMOVE_SET',
-  ADD_SERIES: 'ADD_SERIES',
-  REMOVE_SERIES: 'REMOVE_SERIES'
-
-}
