@@ -11,7 +11,7 @@ var PokemonAdd = React.createClass({
   mixins: [LinkedStateMixin],
   getInitialState: function() {
     return {
-      quantity: 0,
+      quantity: 1,
       cards: '',
       alertVisible: false
     };
@@ -91,7 +91,7 @@ var PokemonAdd = React.createClass({
         quantity: parseInt(this.state.quantity),
         card: this.state.card
       });
-      this.setState({card: '', quantity: 0});
+      this.setState({card: '', quantity: 1});
       this.state.select.clear();
     }
   },
