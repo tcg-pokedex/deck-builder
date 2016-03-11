@@ -13,7 +13,7 @@ var PokemonStore = Fluxxor.createStore({
   },
 
   onAddPokemon: function(payload) {
-    this.pokemon.push(payload.pokemon);
+    this.pokemon.unshift(payload.pokemon);
     this.emit('change');
   },
 

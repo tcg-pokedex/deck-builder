@@ -29,8 +29,8 @@ var PokemonCards = React.createClass({
 
     return (
       <Row>
-        {cards}
         {selected}
+        {cards}
       </Row>
     );
   }
