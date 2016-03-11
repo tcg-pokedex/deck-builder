@@ -63,7 +63,7 @@ gulp.task('watch', function(){
   });
 });
 
-gulp.task('webserver', function() {
+gulp.task('webserver', ['build'], function() {
   gulp.src('build')
     .pipe(webserver({
       livereload: true
