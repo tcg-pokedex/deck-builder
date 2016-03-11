@@ -4,6 +4,8 @@
   "description": "pokemon deck builder",
   "main": "index.js",
   "scripts": {
+    "watch": "gulp",
+    "deploy": "gulp deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

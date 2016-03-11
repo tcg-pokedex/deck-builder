@@ -3,13 +3,11 @@
 ## Development
 
 1. `npm install`
-2. `bower install`
-3. `gulp`
+2. `npm run watch`
 
 That will turn on watch and live reload.
 
 ## Deployment
 
 1. `npm install`
-2. `bower install`
-3. `gulp deploy`
+2. `npm run deploy`
