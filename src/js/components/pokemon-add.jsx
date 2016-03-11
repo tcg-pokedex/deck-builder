@@ -52,7 +52,7 @@ var PokemonAdd = React.createClass({
           <Col md={1} mdOffset={3}>
             <div className="form-group">
               <label>Quantity</label>
-              <input type="number" className="form-control width-100" valueLink={this.linkState('quantity')} min="0" />
+              <input type="number" value={this.state.quantity} className="form-control width-100" onChange={this.updateQuantity} min="0" />
             </div>
           </Col>
           <Col md={3}>
@@ -76,7 +76,21 @@ var PokemonAdd = React.createClass({
     );
   },
 
+  updateQuantity: function(event) {
+    this.setState({quantity:event.target.value});
+    this.props.onSelectPokemon({
+      quantity: parseInt(event.target.value),
+      card: this.state.card
+    });
+  },
+
   updateCard: function(value) {
+    if (value !== "") {
+      this.props.onSelectPokemon({
+        quantity: parseInt(this.state.quantity),
+        card: value
+      });
+    }
     this.setState({card: value});
   },
 

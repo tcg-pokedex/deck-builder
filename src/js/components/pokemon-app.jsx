@@ -18,12 +18,13 @@ var TabletopButton = require('./tabletop-button');
 
 var PokemonApp = React.createClass({
 
-  mixins: [FluxMixin, StoreWatchMixin('PokemonStore', 'CardDataStore')],
+  mixins: [FluxMixin, StoreWatchMixin('PokemonStore', 'SelectedPokemonStore', 'CardDataStore')],
 
   getStateFromFlux: function() {
     var flux = this.getFlux();
     return {
       pokemon: flux.store('PokemonStore').getState(),
+      selectedPokemon: flux.store('SelectedPokemonStore').getState(),
       cardData: flux.store('CardDataStore').getState()
     };
   },
@@ -38,11 +39,11 @@ var PokemonApp = React.createClass({
         <PageHeader>
           Pokemon Deck Builder
         </PageHeader>
-        <PokemonAdd onAdd={this.onAdd} cards={this.state.cardData} />
+        <PokemonAdd onAdd={this.onAdd} onSelectPokemon={this.onSelectPokemon} cards={this.state.cardData} />
         <hr/>
         <Row>
           <Col md={8}>
-            <PokemonCards pokemon={this.state.pokemon} />
+            <PokemonCards pokemon={this.state.pokemon} selected={this.state.selectedPokemon} />
           </Col>
           <Col md={4}>
             <PokemonList pokemon={this.state.pokemon.pokemon} onRemove={this.onRemove} />
@@ -56,7 +57,12 @@ var PokemonApp = React.createClass({
   },
 
   onAdd: function(pokemon) {
+    this.getFlux().actions.selectedPokemon.addedPokemon();
     this.getFlux().actions.pokemon.addPokemon(pokemon);
+  },
+
+  onSelectPokemon: function(pokemon) {
+    this.getFlux().actions.selectedPokemon.selectPokemon(pokemon);
   },
 
   onRemove: function(index) {
