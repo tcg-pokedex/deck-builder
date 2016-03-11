@@ -13,7 +13,14 @@ var PokemonStore = Fluxxor.createStore({
   },
 
   onAddPokemon: function(payload) {
-    this.pokemon.push(payload.pokemon);
+    var entry = this.pokemon.find((pokemon) => {
+      return pokemon.card == payload.pokemon.card
+    });
+    if (entry) {
+      entry.quantity += payload.pokemon.quantity;
+    } else {
+      this.pokemon.push(payload.pokemon);
+    }
     this.emit('change');
   },
 
