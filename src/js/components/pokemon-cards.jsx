@@ -11,15 +11,26 @@ var PokemonCards = React.createClass({
     return p.set + '-' + p.number + '-' + i;
   },
   render: function() {
+    var cards = this.props.pokemon.pokemonToCards().map((p, i) => {
+      return (
+        <Col md={3} sm={3} xs={3} key={this.key(p, i)}>
+          <PokemonCard card={p.card} />
+        </Col>
+      );
+    });
+
+    var selected = this.props.selected.selectedToCards().map((p, i) => {
+      return (
+        <Col md={3} sm={3} xs={3} key={this.key(p, i)} style={{opacity:.50}}>
+          <PokemonCard card={p.card} />
+        </Col>
+      );
+    });
+
     return (
       <Row>
-        {this.props.pokemon.pokemonToCards().map((p, i) => {
-          return (
-            <Col md={3} sm={3} xs={3} key={this.key(p, i)}>
-              <PokemonCard card={p.card} />
-            </Col>
-          );
-        })}
+        {selected}
+        {cards}
       </Row>
     );
   }
