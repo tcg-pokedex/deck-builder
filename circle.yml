@@ -15,4 +15,6 @@ deployment:
     branch: master
     owner: pokemon-tcg
     commands:
+      - git config --global user.email "pokemon-tcg@bot.com"
+      - git config --global user.name "Pokemon TCG Bot"
       - npm run deploy
