@@ -12,15 +12,15 @@ var PokemonAdd = React.createClass({
   getInitialState: function() {
     return {
       quantity: 1,
-      cards: '',
+      card: '',
       alertVisible: false
     };
   },
 
   componentDidMount: function() {
-    var sets = this.props.cards;
+    var cards = this.props.cards;
     var select = $(this.refs.select).selectize({
-      options: sets.cardData,
+      options: cards.cardData,
       labelField: 'name',
       valueField: 'imageFile',
       searchField: ['name'],
@@ -98,7 +98,7 @@ var PokemonAdd = React.createClass({
     event.preventDefault();
     if( parseInt(this.state.quantity) === 0 ||
         isNaN(parseInt(this.state.quantity)) ||
-        this.state.set === "" ) {
+        this.state.card === "" ) {
       this.setState({alertVisible: true});
     } else {
       this.props.onAdd({

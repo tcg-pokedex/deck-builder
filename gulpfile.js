@@ -72,7 +72,7 @@ gulp.task('webserver', ['build'], function() {
 
 var deploy = require('gulp-gh-pages');
 
-gulp.task('ghPages', function () {
+gulp.task('ghPages', ['build'], function () {
   return gulp.src(paths.build)
     .pipe(deploy());
 });
