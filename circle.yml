@@ -1,0 +1,18 @@
+general:
+  branches:
+    ignore:
+      - gh-pages
+machine:
+  node:
+    version: 5.5.0
+
+test:
+  override:
+    - npm run build
+
+deployment:
+  master:
+    branch: master
+    owner: pokemon-tcg
+    commands:
+      - npm run deploy

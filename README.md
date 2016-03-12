@@ -1,4 +1,5 @@
-# pokemon
+# deck-builder
+[![Circle CI](https://circleci.com/gh/pokemon-tcg/deck-builder.svg?style=svg)](https://circleci.com/gh/pokemon-tcg/deck-builder)
 
 ## Development
 
