@@ -1,0 +1,21 @@
+import React from 'react';
+
+import PageHeader from 'react-bootstrap/lib/PageHeader';
+
+import AddCards from '../containers/add-cards';
+import Deck from '../containers/deck';
+
+export default class PokemonApp extends React.Component {
+  render() {
+    return (
+      <div className='container'>
+        <PageHeader>
+          Pokemon Deck Builder
+        </PageHeader>
+        <AddCards />
+        <hr/>
+        <Deck />
+      </div>
+    );
+  }
+}

@@ -1,7 +1,12 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var flux = require('./flux');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from './store';
+import PokemonApp from './components/app';
 
-var PokemonApp = require('./components/pokemon-app');
-
-ReactDOM.render(<PokemonApp flux={flux} />, document.getElementById("app"));
+ReactDOM.render(
+  <Provider store={store}>
+    <PokemonApp />
+  </Provider>,
+  document.getElementById('app')
+);

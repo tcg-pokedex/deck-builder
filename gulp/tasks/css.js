@@ -6,4 +6,4 @@ gulp.task('build:stylesheets', () => {
   gulp.src(paths.source.stylesheets)
     .pipe(stylus())
     .pipe(gulp.dest(paths.build.stylesheets));
-})
+});
