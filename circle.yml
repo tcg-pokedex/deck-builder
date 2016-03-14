@@ -1,0 +1,20 @@
+general:
+  branches:
+    ignore:
+      - gh-pages
+machine:
+  node:
+    version: 5.5.0
+
+test:
+  override:
+    - npm run build
+
+deployment:
+  master:
+    branch: master
+    owner: pokemon-tcg
+    commands:
+      - git config --global user.email "pokemon-tcg@bot.com"
+      - git config --global user.name "Pokemon TCG Bot"
+      - npm run deploy
