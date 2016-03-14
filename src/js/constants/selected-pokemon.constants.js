@@ -1,4 +1,0 @@
-module.exports = {
-  SELECT_POKEMON: 'SELECT_POKEMON',
-  ADDED_POKEMON: 'ADDED_POKEMON'
-}
