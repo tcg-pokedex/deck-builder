@@ -11,5 +11,6 @@ export default {
     jsMain: './app/js/app.jsx',
     scripts: './app/js/**/*.@(js|jsx)',
     html: './app/index.html',
+    circle: './circle.yml',
   },
 };
