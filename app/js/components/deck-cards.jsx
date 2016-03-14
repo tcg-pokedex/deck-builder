@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Row from 'react-bootstrap/lib/row';
-import Col from 'react-bootstrap/lib/col';
+import Row from 'react-bootstrap/lib/Row';
+import Col from 'react-bootstrap/lib/Col';
 
 import DeckCard from './deck-card';
 import { expandCards } from '../util';
