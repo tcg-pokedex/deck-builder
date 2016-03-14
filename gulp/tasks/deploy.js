@@ -6,5 +6,8 @@ import os from 'os';
 
 gulp.task('deploy', ['build'], () => {
   gulp.src(`${paths.build.dir}/**/*`)
-    .pipe(deploy({ cacheDir: os.tmpDir(), force: true }));
+    .pipe(deploy({
+      cacheDir: `${os.tmpDir()}/gh-pages`,
+      force: true,
+    }));
 });
