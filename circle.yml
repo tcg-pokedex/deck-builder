@@ -8,7 +8,7 @@ machine:
 
 test:
   override:
-    - npm run build
+    - NODE_ENV=production npm run build
 
 deployment:
   master:
@@ -17,4 +17,4 @@ deployment:
     commands:
       - git config --global user.email "pokemon-tcg@bot.com"
       - git config --global user.name "Pokemon TCG Bot"
-      - npm run deploy
+      - NODE_ENV=production npm run deploy
