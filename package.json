@@ -43,6 +43,7 @@
     "vinyl-source-stream": "~1.0.0"
   },
   "dependencies": {
+    "material-ui": "^0.14.4",
     "react": "^0.14.7",
     "react-bootstrap": "^0.28.3",
     "react-canvas": "^1.1.0",

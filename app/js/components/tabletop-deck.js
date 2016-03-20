@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Surface, Image } from 'react-canvas';
 import Button from 'react-bootstrap/lib/Button';
 import { imageURL, expandCards } from '../util';
@@ -8,7 +8,7 @@ const WIDTH = 350;
 const ROWS = 6;
 const COLS = 10;
 
-export default class TabletopDeck extends React.Component {
+export default class TabletopDeck extends Component {
   constructor() {
     super();
 

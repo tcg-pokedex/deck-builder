@@ -11,11 +11,10 @@ export function addCard(card) {
   };
 }
 
-export function removeCard(index, quantity) {
+export function removeCard(card) {
   return {
     type: REMOVE_CARD,
-    index,
-    quantity,
+    card,
   };
 }
 

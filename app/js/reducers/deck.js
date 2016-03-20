@@ -15,13 +15,15 @@ export default function deck(state={ cards: [], preview: [] }, action) {
       preview: { $set: [] },
     });
   case REMOVE_CARD:
-    const removeEntry = state.cards[action.index];
-    if (removeEntry.quantity !== action.quantity) {
+    const index = state.cards.findIndex(card => card.id === action.card.id);
+    console.log(index);
+    const removeEntry = state.cards[index];
+    if (removeEntry.quantity !== action.card.quantity) {
       // Shouldn't mutate data. Fix it later
-      removeEntry.quantity -= action.quantity;
+      removeEntry.quantity -= action.card.quantity;
       return state;
     }
-    return update(state, { cards: { $splice: [[action.index, 1]] } });
+    return update(state, { cards: { $splice: [[index, 1]] } });
   case LOAD_JSON:
     return update(state, { cards: { $set: JSON.parse(action.json) } });
   case SELECT_CARD:

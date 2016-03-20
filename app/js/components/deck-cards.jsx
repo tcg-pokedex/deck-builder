@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/lib/Col';
 import DeckCard from './deck-card';
 import { expandCards } from '../util';
 
-export default class DeckCards extends React.Component {
+export default class DeckCards extends Component {
 
   constructor() {
     super();

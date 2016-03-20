@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { imageURL } from '../util';
-export default class DeckCard extends React.Component {
+
+export default class DeckCard extends Component {
   componentDidMount() {
     $(this.refs.lightbox).fancybox({
       helpers: {

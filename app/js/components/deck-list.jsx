@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import ListGroup from 'react-bootstrap/lib/ListGroup';
 import ListGroupItem from 'react-bootstrap/lib/ListGroupItem';
@@ -6,7 +6,7 @@ import Badge from 'react-bootstrap/lib/Badge';
 
 import { removeCard } from '../actions/deck';
 
-export default class DeckList extends React.Component {
+export default class DeckList extends Component {
   constructor() {
     super();
 
@@ -18,8 +18,8 @@ export default class DeckList extends React.Component {
     return this.props.deck.cards.reduce((sum, card) => sum + card.quantity, 0);
   }
 
-  remove(index, quantity) {
-    return this.props.dispatch(removeCard(index, quantity));
+  remove(card) {
+    return this.props.dispatch(removeCard(card));
   }
 
   render() {
@@ -27,10 +27,10 @@ export default class DeckList extends React.Component {
       <div className='panel panel-default'>
         <div className='panel-heading'>Cards ({this.count()})</div>
         <ListGroup>
-          {this.props.deck.cards.map((card, i) =>  {
+          {this.props.deck.cards.map(card =>  {
             return (
               <ListGroupItem key={card.id} >
-                <Badge className='clickable' onClick={this.remove.bind(this, i, card.quantity)} >x</Badge>
+                <Badge className='clickable' onClick={this.remove.bind(this, card)} >x</Badge>
                 {card.quantity}x {card.id}
               </ListGroupItem>
               );

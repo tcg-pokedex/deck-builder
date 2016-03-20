@@ -15,15 +15,20 @@ gulp.task('build:scripts',  () =>  {
   })
     .transform(babelify)
     .add(config.source.jsMain)
-    .bundle()
-    .on('error', handleErrors)
-    .pipe(source('main.js'));
+    .bundle();
+
+  if (process.env.NODE_ENV !== 'production') {
+    bundle = bundle.on('error', handleErrors);
+  }
+
+  bundle = bundle.pipe(source('main.js'));
 
   if (process.env.NODE_ENV === 'production') {
     bundle = bundle
       .pipe(buffer())
       .pipe(uglify());
   }
+
   return bundle
     .pipe(gulp.dest(config.build.js))
     .pipe(notify('Scripts done!'));

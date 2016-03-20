@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Col from 'react-bootstrap/lib/Col';
@@ -14,7 +14,7 @@ function mapStateToProps(state) {
   };
 }
 
-class AddCards extends React.Component {
+class AddCards extends Component {
   constructor() {
     super();
     this.state = {

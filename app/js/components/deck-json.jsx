@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import Modal, { Header, Title, Body, Footer } from 'react-bootstrap/lib/Modal';
 import Button from 'react-bootstrap/lib/Button';
 import { loadJson } from '../actions/deck';
 import { cardsToJson } from '../util';
 
-export default class DeckJson extends React.Component {
+export default class DeckJson extends Component {
   constructor(props) {
     super(props);
 
