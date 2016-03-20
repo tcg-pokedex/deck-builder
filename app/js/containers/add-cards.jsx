@@ -55,14 +55,16 @@ class AddCards extends React.Component {
   updateQuantity(event) {
     const quantity = parseInt(event.target.value, 10);
     this.setState({ quantity });
-    this.props.dispatch(selectCard({
-      quantity,
-      id: this.state.id,
-    }));
+    if (this.state.id !== '') {
+      this.props.dispatch(selectCard({
+        quantity,
+        id: this.state.id,
+      }));
+    }
   }
 
   updateCard(value) {
-    if ( value !== '') {
+    if (value !== '') {
       this.props.dispatch(selectCard({
         quantity: this.state.quantity,
         id: value,
