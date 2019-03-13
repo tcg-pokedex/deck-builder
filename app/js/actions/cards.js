@@ -43,11 +43,11 @@ function loadCardsFailure(error) {
 export function loadData() {
   return dispatch => {
     Promise.all([
-      fetch('https://dl.dropboxusercontent.com/u/73204375/pokemon/carddata.txt')
+      fetch('https://s3-us-west-2.amazonaws.com/cards.pokedex/carddata.txt')
         .then(status)
         .then(text)
         .then(parseTSV),
-      fetch('https://dl.dropboxusercontent.com/u/73204375/pokemon/carddata2.txt')
+      fetch('https://s3-us-west-2.amazonaws.com/cards.pokedex/carddata2.txt')
         .then(status)
         .then(text)
         .then(parseTSV),

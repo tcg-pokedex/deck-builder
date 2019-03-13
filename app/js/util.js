@@ -16,5 +16,5 @@ export function cardsToJson(cards) {
 }
 
 export function imageURL(card) {
-  return `https://dl.dropboxusercontent.com/u/73204375/pokemon/cards/${card.id}.jpg`;
+  return `https://pkmncards.com/lackey/cards/${card.id}.jpg`;
 }
